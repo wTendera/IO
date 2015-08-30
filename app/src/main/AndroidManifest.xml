@@ -20,6 +20,10 @@
             android:name=".activities.DrawerActivity"
             android:label="@string/title_activity_drawer" >
         </activity>
+        <activity
+            android:name=".activities.TrainingActivity"
+            android:label="@string/title_activity_training" >
+        </activity>
     </application>
 
 </manifest>

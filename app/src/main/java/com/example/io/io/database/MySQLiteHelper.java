@@ -30,6 +30,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_CITY + " text, "
             + COLUMN_ZIP + " text);";
 
+
+    public static final String TABLE_TRAININGS = "trainings";
+    public static final String COLUMN_NAME = "name";
+    private static final String TRAININGS_CREATE = "create table "
+            + TABLE_TRAININGS + "(" + COLUMN_ID
+            + " integer primary key autoincrement, "
+            + COLUMN_NAME + " text);";
+
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -38,7 +46,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(USERS_CREATE);
-
+        database.execSQL(TRAININGS_CREATE);
     }
 
     @Override
