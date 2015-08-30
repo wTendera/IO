@@ -40,7 +40,7 @@ public class UserBuilder
     }
 
     public User createPerson() {
-        return new User(newLastName, newFirstName, newStreet, newCity, newZip);
+        return new User(newFirstName, newLastName, newStreet, newCity, newZip);
     }
 
 }
