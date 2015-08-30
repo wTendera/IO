@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="apptheme_color">#000000</color>
+    <!--<color name="main">#5e7974</color>-->
+    <color name="main">#BFBFBF</color>
+    <color name="item_color">#BFBFBF</color>
+    <color name="custom_button_text">#ffffff</color>
+    <color name="custom_button_bg">#179D5A</color>
+    <color name="custom_menu_bg">#5E5E5E</color>
+    <color name="canceled">#f82021</color>
+    <color name="accepted">#00b579</color>
+    <color name="offered">#f7aa20</color>
+    <color name="moved">#de437a</color>
+    <color name="nil">#5E5E5E</color>
+    <color name="postponed">#FC1F59</color>
+    <color name="anything">#B0D046</color>
+
+
+
+</resources>

@@ -28,7 +28,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_LAST_NAME + " text, "
             + COLUMN_STREET + " text, "
             + COLUMN_CITY + " text, "
-            + COLUMN_ZIP + " text;";
+            + COLUMN_ZIP + " text);";
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
