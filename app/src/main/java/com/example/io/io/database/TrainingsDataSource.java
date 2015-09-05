@@ -49,9 +49,10 @@ public class TrainingsDataSource {
         return args;
     }
 
-    public void createOrUpdateTraining(Training training) {
+    public long createOrUpdateTraining(Training training) {
         ContentValues args = getArgs(training);
-        database.insertWithOnConflict ("trainings", null, args, 5); //5 = CONFLICT REPLACE
+        args.remove(MySQLiteHelper.COLUMN_ID);
+        return database.insertWithOnConflict ("trainings", null, args, 5); //5 = CONFLICT REPLACE
     }
 
     private Training cursorToTraining(Cursor cursor) {

@@ -13,4 +13,5 @@
 
     <string name="action_example">Example action</string>
     <string name="title_activity_training">TrainingActivity</string>
+    <string name="title_activity_create_training">CreateTrainingActivity</string>
 </resources>

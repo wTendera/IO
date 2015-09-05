@@ -110,7 +110,7 @@ public class DrawerActivity extends ActionBarActivity
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.drawer, menu);
+            getMenuInflater().inflate(R.menu.menu_training, menu);
             restoreActionBar();
             return true;
         }
@@ -126,6 +126,12 @@ public class DrawerActivity extends ActionBarActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if (id == R.id.action_add) {
+            Intent intent = new Intent(DrawerActivity.this, CreateTrainingActivity.class);
+            startActivity(intent);
             return true;
         }
 
