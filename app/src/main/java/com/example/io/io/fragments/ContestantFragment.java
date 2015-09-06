@@ -16,59 +16,58 @@ import android.widget.TextView;
 
 import com.example.io.io.R;
 
-import com.example.io.io.activities.TrainingActivity;
-import com.example.io.io.adapters.TrainingsAdapter;
-import com.example.io.io.database.TrainingsDataSource;
-import com.example.io.io.models.Training;
+import com.example.io.io.activities.ContestantActivity;
+import com.example.io.io.adapters.ContestantsAdapter;
+import com.example.io.io.database.ContestantsDataSource;
+import com.example.io.io.models.Contestant;
 
 import java.util.ArrayList;
 
-public class TrainingFragment extends Fragment implements AbsListView.OnItemClickListener {
+
+public class ContestantFragment extends Fragment implements AbsListView.OnItemClickListener {
 
 
-    private long user_id;
-
-    private ArrayList<Training> content;
+    private ArrayList<Contestant> content;
 
     private OnFragmentInteractionListener mListener;
-    private TrainingsDataSource trainingsDataSource;
+    private ContestantsDataSource contestantsDataSource;
 
     private AbsListView mListView;
     SharedPreferences prefs;
 
-    private TrainingsAdapter mAdapter;
-
-    public TrainingFragment() {
+    private ContestantsAdapter mAdapter;
+    public ContestantFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        trainingsDataSource = new TrainingsDataSource(getActivity());
+        contestantsDataSource = new ContestantsDataSource(getActivity());
         prefs = getActivity().getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
 
 
-        content = new ArrayList<Training>();
-        content.addAll(trainingsDataSource.getAllTrainings());
+        content = new ArrayList<Contestant>();
+        content.addAll(contestantsDataSource.getAllContestants());
+        content.add(new Contestant(2, "dupa2"));
 
-        mAdapter = new TrainingsAdapter(getActivity(),
-                R.layout.training_item_row, content);
-
-        user_id = prefs.getLong("user_id", 0);
+        mAdapter = new ContestantsAdapter(getActivity(),
+                R.layout.contestant_item_row, content);
 
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_training, container, false);
+        View view = inflater.inflate(R.layout.fragment_contestant, container, false);
 
+        // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
+        // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);
+
         return view;
     }
 
@@ -89,12 +88,11 @@ public class TrainingFragment extends Fragment implements AbsListView.OnItemClic
         mListener = null;
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        int trainingId = content.get((int)id).getId();
-        Intent intent = new Intent(getActivity(), TrainingActivity.class);
-        intent.putExtra("trainingId", trainingId);
+        long contestantId = content.get((int)id).getId();
+        Intent intent = new Intent(getActivity(), ContestantActivity.class);
+        intent.putExtra("contestantId", contestantId);
         startActivityForResult(intent, 1);
     }
 
@@ -109,6 +107,5 @@ public class TrainingFragment extends Fragment implements AbsListView.OnItemClic
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(String id);
     }
-
 
 }

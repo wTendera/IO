@@ -28,6 +28,14 @@
             android:name=".activities.CreateTrainingActivity"
             android:label="@string/title_activity_create_training" >
         </activity>
+        <activity
+            android:name=".activities.CreateContestantActivity"
+            android:label="@string/title_activity_create_contestant" >
+        </activity>
+        <activity
+            android:name=".activities.ContestantActivity"
+            android:label="@string/title_activity_contestant" >
+        </activity>
     </application>
 
 </manifest>

@@ -12,10 +12,9 @@ public class Training implements Order{
     private String name;
     private Order orders[];
 
-    public Training(int id, String name, Order orders[]) {
+    public Training(int id, String name) {
         this.id = id;
         this.name = name;
-        this.orders = orders;
     }
 
     public int getId() { return id; }

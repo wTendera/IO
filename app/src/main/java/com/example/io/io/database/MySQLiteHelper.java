@@ -38,6 +38,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + " integer primary key autoincrement, "
             + COLUMN_NAME + " text);";
 
+    public static final String TABLE_CONTESTANTS = "contestants";
+
+    private static final String CONTESTANTS_CREATE = "create table "
+            + TABLE_CONTESTANTS + "(" + COLUMN_ID
+            + " integer primary key autoincrement, "
+            + COLUMN_NAME + " text);";
+
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -47,6 +54,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(USERS_CREATE);
         database.execSQL(TRAININGS_CREATE);
+        database.execSQL(CONTESTANTS_CREATE);
     }
 
     @Override

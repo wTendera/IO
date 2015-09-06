@@ -15,7 +15,6 @@ import java.util.List;
  * Created by wiktortendera on 30/08/15.
  */
 public class TrainingsDataSource {
-
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NAME};

@@ -22,11 +22,13 @@ import android.widget.TextView;
 
 import com.example.io.io.R;
 import com.example.io.io.database.UsersDataSource;
+import com.example.io.io.fragments.ContestantFragment;
 import com.example.io.io.fragments.TrainingFragment;
 import com.example.io.io.models.User;
 
 public class DrawerActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, TrainingFragment.OnFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, TrainingFragment.OnFragmentInteractionListener,
+        ContestantFragment.OnFragmentInteractionListener{
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -36,7 +38,10 @@ public class DrawerActivity extends ActionBarActivity
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
-    private CharSequence mTitle;
+    private CharSequence mTitle = "wat";
+
+    private static int type = 1;
+    public String[] names = {"Trainings", "Contestants", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +69,13 @@ public class DrawerActivity extends ActionBarActivity
         android.app.Fragment fragment = new TrainingFragment();
         android.app.FragmentManager fragmentManager = getFragmentManager();
         Bundle bundle = new Bundle();
+        DrawerActivity.type = position;
         switch(position) {
             case 0:
                 fragment =  new TrainingFragment();
                 break;
             case 1:
-                fragment = new TrainingFragment();
+                fragment = new ContestantFragment();
                 break;
             case 2:
                 fragment = new TrainingFragment();
@@ -84,13 +90,13 @@ public class DrawerActivity extends ActionBarActivity
 
     public void onSectionAttached(int number) {
         switch (number) {
-            case 1:
+            case 0:
                 mTitle = getString(R.string.title_section1);
                 break;
-            case 2:
+            case 1:
                 mTitle = getString(R.string.title_section2);
                 break;
-            case 3:
+            case 2:
                 mTitle = getString(R.string.title_section3);
                 break;
         }
@@ -100,7 +106,7 @@ public class DrawerActivity extends ActionBarActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
+        actionBar.setTitle(names[DrawerActivity.type]);
     }
 
 
@@ -110,7 +116,14 @@ public class DrawerActivity extends ActionBarActivity
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.menu_training, menu);
+            switch (DrawerActivity.type) {
+                case 0:
+                    getMenuInflater().inflate(R.menu.menu_training, menu);
+                    break;
+                case 1:
+                    getMenuInflater().inflate(R.menu.menu_contestant, menu);
+                    break;
+            }
             restoreActionBar();
             return true;
         }
@@ -131,6 +144,10 @@ public class DrawerActivity extends ActionBarActivity
 
         if (id == R.id.action_add) {
             Intent intent = new Intent(DrawerActivity.this, CreateTrainingActivity.class);
+            startActivity(intent);
+            return true;
+        } else if ((id == R.id.action_add_contestant)) {
+            Intent intent = new Intent(DrawerActivity.this, CreateContestantActivity.class);
             startActivity(intent);
             return true;
         }

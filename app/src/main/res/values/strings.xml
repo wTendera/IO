@@ -5,7 +5,7 @@
     <string name="title_activity_drawer">DrawerActivity</string>
 
     <string name="title_section1">Treningi</string>
-    <string name="title_section2">Section 2</string>
+    <string name="title_section2">Uczestnicy</string>
     <string name="title_section3">Section 3</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -14,4 +14,6 @@
     <string name="action_example">Example action</string>
     <string name="title_activity_training">TrainingActivity</string>
     <string name="title_activity_create_training">CreateTrainingActivity</string>
+    <string name="title_activity_create_contestant">CreateContestantActivity</string>
+    <string name="title_activity_contestant">ContestantActivity</string>
 </resources>
