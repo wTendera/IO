@@ -54,6 +54,16 @@ public class ContestantsDataSource {
         return database.insertWithOnConflict ("contestants", null, args, 5); //5 = CONFLICT REPLACE
     }
 
+    public Contestant getContestant(long id) {
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_CONTESTANTS,
+                allColumns, MySQLiteHelper.COLUMN_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
+
+        cursor.moveToFirst();
+        Contestant contestant = cursorToContestant(cursor);
+        cursor.close();
+        return contestant;
+    }
+
     private Contestant cursorToContestant(Cursor cursor) {
         Contestant contestant = new Contestant(cursor.getInt(0), cursor.getString(1));
         return contestant;

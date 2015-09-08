@@ -49,7 +49,6 @@ public class ContestantFragment extends Fragment implements AbsListView.OnItemCl
 
         content = new ArrayList<Contestant>();
         content.addAll(contestantsDataSource.getAllContestants());
-        content.add(new Contestant(2, "dupa2"));
 
         mAdapter = new ContestantsAdapter(getActivity(),
                 R.layout.contestant_item_row, content);

@@ -36,6 +36,10 @@
             android:name=".activities.ContestantActivity"
             android:label="@string/title_activity_contestant" >
         </activity>
+        <activity
+            android:name=".activities.CreateOrderActivity"
+            android:label="@string/title_activity_create_order" >
+        </activity>
     </application>
 
 </manifest>

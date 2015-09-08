@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.io.io.models.Training;
+import com.example.io.io.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,16 @@ public class TrainingsDataSource {
         ContentValues args = getArgs(training);
         args.remove(MySQLiteHelper.COLUMN_ID);
         return database.insertWithOnConflict ("trainings", null, args, 5); //5 = CONFLICT REPLACE
+    }
+
+    public Training getTraining(long id) {
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_TRAININGS,
+                allColumns, MySQLiteHelper.COLUMN_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
+
+        cursor.moveToFirst();
+        Training training = cursorToTraining(cursor);
+        cursor.close();
+        return training;
     }
 
     private Training cursorToTraining(Cursor cursor) {

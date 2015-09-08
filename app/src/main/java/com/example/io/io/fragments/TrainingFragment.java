@@ -92,7 +92,7 @@ public class TrainingFragment extends Fragment implements AbsListView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        int trainingId = content.get((int)id).getId();
+        long trainingId = content.get((int)id).getId();
         Intent intent = new Intent(getActivity(), TrainingActivity.class);
         intent.putExtra("trainingId", trainingId);
         startActivityForResult(intent, 1);

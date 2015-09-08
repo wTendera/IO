@@ -45,6 +45,21 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + " integer primary key autoincrement, "
             + COLUMN_NAME + " text);";
 
+
+    public static final String TABLE_ORDERS = "orders";
+    public static final String COLUMN_CONTESTANT_ID = "contestant_id";
+    public static final String COLUMN_TRAINING_ID = "user_id";
+    public static final String COLUMN_DOING = "doing";
+    public static final String COLUMN_TYPE = "type";
+
+    private static final String ORDERS_CREATE = "create table "
+            + TABLE_ORDERS + "(" + COLUMN_ID
+            + " integer primary key autoincrement, "
+            + COLUMN_CONTESTANT_ID + " integer, "
+            + COLUMN_TRAINING_ID + " integer, "
+            + COLUMN_DOING + " integer, "
+            + COLUMN_TYPE + " integer);";
+
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -55,6 +70,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.execSQL(USERS_CREATE);
         database.execSQL(TRAININGS_CREATE);
         database.execSQL(CONTESTANTS_CREATE);
+        database.execSQL(ORDERS_CREATE);
     }
 
     @Override
