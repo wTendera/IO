@@ -17,4 +17,5 @@
     <string name="title_activity_create_contestant">CreateContestantActivity</string>
     <string name="title_activity_contestant">ContestantActivity</string>
     <string name="title_activity_create_order">CreateOrderActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.io.io.activities.TrainingActivity"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_eating"
+        android:title="@string/action_settings"
+        yourapp:showAsAction="always|collapseActionView" />
+    <item android:id="@+id/action_add"
+        android:icon="@drawable/plus"
+        android:title="Add event"
+        yourapp:showAsAction="always|collapseActionView" />
+
+</menu>

@@ -33,6 +33,7 @@ public class TrainingActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
         trainingId =  getIntent().getLongExtra("trainingId", 0);
+        System.out.println("id: " + trainingId);
         TrainingsDataSource dataSource = new TrainingsDataSource(this);
         OrdersDataSource ordersDataSource = new OrdersDataSource(this);
         training = dataSource.getTraining(trainingId);

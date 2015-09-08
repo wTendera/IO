@@ -51,6 +51,8 @@ public class TrainingFragment extends Fragment implements AbsListView.OnItemClic
 
         content = new ArrayList<Training>();
         content.addAll(trainingsDataSource.getAllTrainings());
+        for(Training t : content)
+            t.setState(getActivity());
 
         mAdapter = new TrainingsAdapter(getActivity(),
                 R.layout.training_item_row, content);
@@ -92,10 +94,8 @@ public class TrainingFragment extends Fragment implements AbsListView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        long trainingId = content.get((int)id).getId();
-        Intent intent = new Intent(getActivity(), TrainingActivity.class);
-        intent.putExtra("trainingId", trainingId);
-        startActivityForResult(intent, 1);
+        Training training = content.get((int) id);
+        training.start(getActivity());
     }
 
     public void setEmptyText(CharSequence emptyText) {

@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -118,7 +119,7 @@ public class DrawerActivity extends ActionBarActivity
             // decide what to show in the action bar.
             switch (DrawerActivity.type) {
                 case 0:
-                    getMenuInflater().inflate(R.menu.menu_training, menu);
+                    getMenuInflater().inflate(R.menu.menu_training_settings, menu);
                     break;
                 case 1:
                     getMenuInflater().inflate(R.menu.menu_contestant, menu);
@@ -148,6 +149,10 @@ public class DrawerActivity extends ActionBarActivity
             return true;
         } else if ((id == R.id.action_add_contestant)) {
             Intent intent = new Intent(DrawerActivity.this, CreateContestantActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_eating){
+            Intent intent = new Intent(DrawerActivity.this, SettingsActivity.class);
             startActivity(intent);
             return true;
         }
